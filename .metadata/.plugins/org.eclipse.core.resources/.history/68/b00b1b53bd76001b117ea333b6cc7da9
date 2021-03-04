@@ -1,0 +1,10 @@
+package freeGames;
+
+public class CashOffers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

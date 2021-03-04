@@ -1,0 +1,52 @@
+package timersAndSweepers;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class SweeperInitiated extends TC_TimersAndSweepers_Precondition {
+
+	@BeforeClass
+	public  void SweeperInitiatedPreconditions() 
+	
+	{	
+	System.out.println("Precondition SweeperInitiated Test");
+	}
+	
+	@AfterClass
+	public void SweeperInitiatedCondition()
+	{
+		System.out.println("Revert back the changes made in the before class");
+	}
+	
+	@BeforeMethod
+	public void commonPreconditionForAlltheTestCases()
+	{
+		System.out.println("Delete the log files");
+	}
+	
+	@AfterMethod
+	public void commonPostCondition()
+	{
+		System.out.println("Common post condition for all the test cases");
+		System.out.println("clear global variables data");
+	}
+	@Test
+	public void test1()
+	{
+		System.out.println("SweeperInitiated test1");
+	}
+	@Test
+	public void test2()
+	{
+		System.out.println("SweeperInitiated test2");
+	}
+	@Test
+	public void test3()
+	{
+		System.out.println("SweeperInitiated test3");
+	}
+
+}

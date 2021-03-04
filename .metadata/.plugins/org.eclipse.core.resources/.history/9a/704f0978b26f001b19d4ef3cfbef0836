@@ -1,0 +1,29 @@
+package collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapInterface {
+
+	public static void main(String[] args) {
+		
+		Map<String, String> map = new HashMap<>();
+		
+		map.put("name1", "Anjali");
+		map.put("name2", "Santosh");
+		map.put("name3", "Subhangi");
+		map.put("null", "Anand");
+		System.out.println(map.get(null));
+		
+       Map<Integer, String> map1 = new HashMap<>();
+		
+		map1.put(1, "Anjali");
+		map1.put(2, "Santosh");
+		map1.put(3, "Subhangi");
+		map1.put(4, "Anand");
+		
+		
+System.out.println(map1.get(2));
+	}
+
+}

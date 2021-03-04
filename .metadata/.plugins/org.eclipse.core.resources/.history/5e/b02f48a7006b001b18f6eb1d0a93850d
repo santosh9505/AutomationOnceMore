@@ -1,0 +1,28 @@
+package practice;
+
+public class Practice3 {
+
+	public static void main(String[] args) {
+		int arr[] = {5,3,5,6,1,8,9,1};
+		
+		 int i, j;
+		 int counter = 0;
+		    //System.out.println("Repeated Elements are :");
+		    for (i = 0; i < arr.length; i++) {
+		        for (j = i + 1; j < arr.length; j++) {
+		            if (arr[i] == arr[j]) 
+		            {
+		            	System.out.println(arr[i] + " " );
+		            	counter++;
+		            }
+		            
+		
+		
+		
+		
+		
+		
+	}
+}
+	}
+}

@@ -1,0 +1,59 @@
+package webElements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+public class LaunchBrowser {
+	
+	WebDriver dr;
+	
+	@Test
+	public void launchBrowser()
+	{
+		//browser path
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\karthik\\Desktop\\jarFiles\\Drivers\\chromedriver.exe");
+		
+		dr = new ChromeDriver();
+		
+		dr.manage().window().maximize();
+		
+		dr.get("http://sampleapp.tricentis.com/101/index.php");
+	}
+	
+	@Test(dependsOnMethods ="launchBrowser")
+	public void validate_motorCycle_event_VechileData()
+	{
+		//dr.findElement(By.linkText("Automobile")).click();
+		//dr.findElement(By.partialLinkText("tomobile")).click();
+		dr.findElement(By.xpath("//a[@id='nav_automobile']")).click();
+	}
+	@Test(dependsOnMethods = "validate_motorCycle_event_VechileData")
+	public void validate_Make_DropDown() throws InterruptedException
+	{
+		WebElement make=dr.findElement(By.id("make"));
+		Select sel = new Select(make);
+		
+		sel.selectByIndex(13);
+		Thread.sleep(2000);
+		sel.selectByValue("Ford");
+		Thread.sleep(2000);
+		sel.selectByVisibleText("Renault");
+		
+	}
+	@Test(dependsOnMethods = "validate_Make_DropDown")
+	public void validate_EnginePerformance()
+	{
+		dr.findElement(By.id("engineperformance")).sendKeys("1000");
+	}
+	
+	@Test(dependsOnMethods = "validate_EnginePerformance")
+	public void validate_DateOFManufacture()
+	{
+		dr.findElement(By.id("dateofmanufacture")).sendKeys("01/01/2020");
+	}
+
+}
